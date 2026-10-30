@@ -1,0 +1,36 @@
+# Messages that must NOT parse into a transaction.
+
+sender: MoMo
+received: 1761741000000
+body: Transaction of ZMW 50.00 to JOHN BANDA failed. Insufficient funds. ID: MP0000000001.
+expect: FAILURE
+
+sender: MoMo
+received: 1761741000000
+body: Y'ello! Dial *115# to buy bundles with MoMo and win big this festive season.
+expect: FAILURE
+
+sender: MoMo
+received: 1761741000000
+body: Your MoMo balance is ZMW 1,250.00.
+expect: FAILURE
+
+sender: AirtelMoney
+received: 1761741000000
+body: Txn ID: PP261001.0900.A00001. Reversal of K100.00 from JOHN BANDA has been processed.
+expect: FAILURE
+
+sender: AirtelMoney
+received: 1761741000000
+body: Your Airtel Money PIN was changed successfully.
+expect: FAILURE
+
+sender: Zamtel
+received: 1761741000000
+body: Dear Customer, your transaction could not be completed. Please try again.
+expect: FAILURE
+
+sender: MoMo
+received: 1761741000000
+body: You have sent ZMW 0.00 to JOHN BANDA 0961234567 on 01/10/2026 09:00. Fee: ZMW 0.00. Balance: ZMW 10.00. ID: MP0000000002.
+expect: FAILURE

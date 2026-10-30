@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "_comment": "SYNTHETIC formats for development. Replace with patterns written from real, anonymised SMS before release. Bump version whenever you change a template.",
+  "providers": [
+    {
+      "provider": "MTN",
+      "senders": [
+        "MoMo",
+        "MTN MoMo",
+        "MTNMoMo",
+        "115"
+      ],
+      "templates": [
+        {
+          "id": "mtn_sent_v1",
+          "type": "SENT",
+          "dateFormat": "dd/MM/yyyy HH:mm",
+          "pattern": "You have sent ZMW (?<amount>[\\d,]+(?:\\.\\d{1,2})?) to (?<counterparty>.+?)(?: \\(?\\+?\\d{9,12}\\)?)? on (?<date>\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2})\\. Fee: ZMW (?<fee>[\\d,]+(?:\\.\\d{1,2})?)\\. Balance: ZMW (?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. ID: (?<txnId>[A-Za-z0-9]+)"
+        },
+        {
+          "id": "mtn_received_v1",
+          "type": "RECEIVED",
+          "dateFormat": "dd/MM/yyyy HH:mm",
+          "pattern": "You have received ZMW (?<amount>[\\d,]+(?:\\.\\d{1,2})?) from (?<counterparty>.+?)(?: \\(?\\+?\\d{9,12}\\)?)? on (?<date>\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2})\\. Balance: ZMW (?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. ID: (?<txnId>[A-Za-z0-9]+)"
+        },
+        {
+          "id": "mtn_cashout_v1",
+          "type": "CASH_OUT",
+          "dateFormat": "dd/MM/yyyy HH:mm",
+          "pattern": "Cash out of ZMW (?<amount>[\\d,]+(?:\\.\\d{1,2})?) at agent (?<counterparty>.+?) on (?<date>\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}) was successful\\. Fee: ZMW (?<fee>[\\d,]+(?:\\.\\d{1,2})?)\\. Balance: ZMW (?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. ID: (?<txnId>[A-Za-z0-9]+)"
+        },
+        {
+          "id": "mtn_cashin_v1",
+          "type": "CASH_IN",
+          "dateFormat": "dd/MM/yyyy HH:mm",
+          "pattern": "Cash in of ZMW (?<amount>[\\d,]+(?:\\.\\d{1,2})?) from agent (?<counterparty>.+?) on (?<date>\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2})\\. Balance: ZMW (?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. ID: (?<txnId>[A-Za-z0-9]+)"
+        },
+        {
+          "id": "mtn_airtime_v1",
+          "type": "AIRTIME",
+          "dateFormat": "dd/MM/yyyy HH:mm",
+          "pattern": "You have bought airtime of ZMW (?<amount>[\\d,]+(?:\\.\\d{1,2})?) for (?<counterparty>\\+?\\d{9,12}) on (?<date>\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2})\\. Balance: ZMW (?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. ID: (?<txnId>[A-Za-z0-9]+)"
+        },
+        {
+          "id": "mtn_bill_v1",
+          "type": "BILL_PAYMENT",
+          "dateFormat": "dd/MM/yyyy HH:mm",
+          "pattern": "Payment of ZMW (?<amount>[\\d,]+(?:\\.\\d{1,2})?) to (?<counterparty>.+?) account [A-Za-z0-9-]+ on (?<date>\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}) was successful\\. Fee: ZMW (?<fee>[\\d,]+(?:\\.\\d{1,2})?)\\. Balance: ZMW (?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. ID: (?<txnId>[A-Za-z0-9]+)"
+        },
+        {
+          "id": "mtn_merchant_v1",
+          "type": "MERCHANT_PAYMENT",
+          "dateFormat": "dd/MM/yyyy HH:mm",
+          "pattern": "You have paid ZMW (?<amount>[\\d,]+(?:\\.\\d{1,2})?) to merchant (?<counterparty>.+?) on (?<date>\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2})\\. Balance: ZMW (?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. ID: (?<txnId>[A-Za-z0-9]+)"
+        }
+      ]
+    },
+    {
+      "provider": "AIRTEL",
+      "senders": [
+        "AirtelMoney",
+        "Airtel Money",
+        "AIRTEL"
+      ],
+      "templates": [
+        {
+          "id": "airtel_sent_v1",
+          "type": "SENT",
+          "dateFormat": "dd-MM-yy HH:mm",
+          "pattern": "Txn ID:? (?<txnId>[A-Za-z0-9]+(?:\\.[A-Za-z0-9]+)*)[.:]? You have sent K(?<amount>[\\d,]+(?:\\.\\d{1,2})?) to (?<counterparty>.+?)(?: \\(?\\+?\\d{9,12}\\)?)?\\. Charge K(?<fee>[\\d,]+(?:\\.\\d{1,2})?)\\. Bal:? K(?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. (?<date>\\d{2}-\\d{2}-\\d{2} \\d{2}:\\d{2})"
+        },
+        {
+          "id": "airtel_received_v1",
+          "type": "RECEIVED",
+          "pattern": "Txn ID:? (?<txnId>[A-Za-z0-9]+(?:\\.[A-Za-z0-9]+)*)[.:]? Received K(?<amount>[\\d,]+(?:\\.\\d{1,2})?) from (?<counterparty>.+?)(?: \\(?\\+?\\d{9,12}\\)?)?\\. Bal:? K(?<balance>[\\d,]+(?:\\.\\d{1,2})?)"
+        },
+        {
+          "id": "airtel_withdraw_v1",
+          "type": "CASH_OUT",
+          "dateFormat": "dd-MM-yy HH:mm",
+          "pattern": "Txn ID:? (?<txnId>[A-Za-z0-9]+(?:\\.[A-Za-z0-9]+)*)[.:]? Withdrawal of K(?<amount>[\\d,]+(?:\\.\\d{1,2})?) at agent (?<counterparty>.+?)\\. Charge K(?<fee>[\\d,]+(?:\\.\\d{1,2})?)\\. Bal:? K(?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. (?<date>\\d{2}-\\d{2}-\\d{2} \\d{2}:\\d{2})"
+        },
+        {
+          "id": "airtel_deposit_v1",
+          "type": "CASH_IN",
+          "dateFormat": "dd-MM-yy HH:mm",
+          "pattern": "Txn ID:? (?<txnId>[A-Za-z0-9]+(?:\\.[A-Za-z0-9]+)*)[.:]? Deposit of K(?<amount>[\\d,]+(?:\\.\\d{1,2})?) from agent (?<counterparty>.+?)\\. Bal:? K(?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. (?<date>\\d{2}-\\d{2}-\\d{2} \\d{2}:\\d{2})"
+        },
+        {
+          "id": "airtel_airtime_v1",
+          "type": "AIRTIME",
+          "dateFormat": "dd-MM-yy HH:mm",
+          "pattern": "Txn ID:? (?<txnId>[A-Za-z0-9]+(?:\\.[A-Za-z0-9]+)*)[.:]? Airtime purchase of K(?<amount>[\\d,]+(?:\\.\\d{1,2})?) for (?<counterparty>\\+?\\d{9,12})\\. Bal:? K(?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. (?<date>\\d{2}-\\d{2}-\\d{2} \\d{2}:\\d{2})"
+        },
+        {
+          "id": "airtel_merchant_v1",
+          "type": "MERCHANT_PAYMENT",
+          "dateFormat": "dd-MM-yy HH:mm",
+          "pattern": "Txn ID:? (?<txnId>[A-Za-z0-9]+(?:\\.[A-Za-z0-9]+)*)[.:]? Paid K(?<amount>[\\d,]+(?:\\.\\d{1,2})?) to (?<counterparty>.+?)\\. Charge K(?<fee>[\\d,]+(?:\\.\\d{1,2})?)\\. Bal:? K(?<balance>[\\d,]+(?:\\.\\d{1,2})?)\\. (?<date>\\d{2}-\\d{2}-\\d{2} \\d{2}:\\d{2})"
+        }
+      ]
+    },
+    {
+      "provider": "ZAMTEL",
+      "senders": [
+        "Zamtel",
+        "ZamtelKwacha",
+        "Zamtel Kwacha",
+        "Kwacha"
+      ],
+      "templates": [
+        {
+          "id": "zamtel_sent_v1",
+          "type": "SENT",
+          "pattern": "you have transferred ZMW ?(?<amount>[\\d,]+(?:\\.\\d{1,2})?) to (?<counterparty>.+?)(?: \\(?\\+?\\d{9,12}\\)?)?\\. Transaction ID:? (?<txnId>[A-Za-z0-9]+)\\. Your new balance is ZMW ?(?<balance>[\\d,]+(?:\\.\\d{1,2})?)"
+        },
+        {
+          "id": "zamtel_received_v1",
+          "type": "RECEIVED",
+          "pattern": "you have received ZMW ?(?<amount>[\\d,]+(?:\\.\\d{1,2})?) from (?<counterparty>.+?)(?: \\(?\\+?\\d{9,12}\\)?)?\\. Transaction ID:? (?<txnId>[A-Za-z0-9]+)\\. Your new balance is ZMW ?(?<balance>[\\d,]+(?:\\.\\d{1,2})?)"
+        },
+        {
+          "id": "zamtel_withdraw_v1",
+          "type": "CASH_OUT",
+          "pattern": "you have withdrawn ZMW ?(?<amount>[\\d,]+(?:\\.\\d{1,2})?) at agent (?<counterparty>.+?)\\. Fee ZMW ?(?<fee>[\\d,]+(?:\\.\\d{1,2})?)\\. Transaction ID:? (?<txnId>[A-Za-z0-9]+)\\. Your new balance is ZMW ?(?<balance>[\\d,]+(?:\\.\\d{1,2})?)"
+        },
+        {
+          "id": "zamtel_airtime_v1",
+          "type": "AIRTIME",
+          "pattern": "airtime of ZMW ?(?<amount>[\\d,]+(?:\\.\\d{1,2})?) bought for (?<counterparty>\\+?\\d{9,12})\\. Transaction ID:? (?<txnId>[A-Za-z0-9]+)\\. Your new balance is ZMW ?(?<balance>[\\d,]+(?:\\.\\d{1,2})?)"
+        },
+        {
+          "id": "zamtel_bill_v1",
+          "type": "BILL_PAYMENT",
+          "pattern": "you have paid ZMW ?(?<amount>[\\d,]+(?:\\.\\d{1,2})?) to (?<counterparty>.+?)\\. Fee ZMW ?(?<fee>[\\d,]+(?:\\.\\d{1,2})?)\\. Transaction ID:? (?<txnId>[A-Za-z0-9]+)\\. Your new balance is ZMW ?(?<balance>[\\d,]+(?:\\.\\d{1,2})?)"
+        }
+      ]
+    }
+  ]
+}

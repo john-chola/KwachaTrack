@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Decode signing key
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/release.jks
+
+      - name: Test and build signed release
+        run: ./gradlew :core:parser:test :core:domain:test testReleaseUnitTest assembleRelease
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Name the APK
+        run: cp app/build/outputs/apk/release/app-release.apk "KwachaTrack-${GITHUB_REF_NAME}.apk"
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: KwachaTrack-*.apk
+          generate_release_notes: true
+
+      - name: Remove key
+        if: always()
+        run: rm -f app/release.jks

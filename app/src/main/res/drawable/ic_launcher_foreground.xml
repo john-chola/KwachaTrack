@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A simple "K" with a rising line, inside the 66dp safe zone of the 108dp canvas. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M36,32h8v18l16,-18h10l-17,19 18,25h-10l-13,-18 -4,4v14h-8z" />
+    <path android:strokeColor="#F4B183" android:strokeWidth="4" android:strokeLineCap="round"
+        android:pathData="M64,74l6,-8 5,4 8,-12" />
+</vector>
