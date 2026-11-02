@@ -20,6 +20,16 @@ jobs:
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
 
+      - name: Build debug APK
+        run: ./gradlew assembleDebug
+
+      # Upload the APK before lint and tests so a style or coverage failure
+      # still leaves an installable build to try on a phone.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+
       - name: Lint
         run: ./gradlew ktlintCheck
 
@@ -32,16 +42,8 @@ jobs:
       - name: Coverage report and 80% gate
         run: ./gradlew koverXmlReport koverHtmlReport koverVerify
 
-      - name: Build debug APK
-        run: ./gradlew assembleDebug
-
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: coverage-report
           path: build/reports/kover/
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: debug-apk
-          path: app/build/outputs/apk/debug/*.apk
