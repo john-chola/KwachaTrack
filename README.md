@@ -1,6 +1,6 @@
 # KwachaTrack
 
-[![CI](https://github.com/OWNER/kwachatrack/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/kwachatrack/actions/workflows/ci.yml)
+[![CI](https://github.com/john-chola/KwachaTrack/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/kwachatrack/actions/workflows/ci.yml)
 
 An Android app that reads your **MTN MoMo, Airtel Money and Zamtel Kwacha** SMS messages and shows where your money goes, with no manual entry.
 
@@ -20,14 +20,14 @@ An Android app that reads your **MTN MoMo, Airtel Money and Zamtel Kwacha** SMS 
 
 ## Download
 
-Get the latest APK from [Releases](https://github.com/OWNER/kwachatrack/releases). On your phone, allow "Install unknown apps" for your browser or file manager when prompted.
+Get the latest APK from [Releases](https://github.com/john-chola/KwachaTrack/releases). On your phone, allow "Install unknown apps" for your browser or file manager when prompted.
 
 ## Build it yourself
 
 Requirements: Android Studio (latest stable), JDK 17, Android SDK 36. A machine with 8 GB of RAM or more is comfortable.
 
 ```bash
-git clone https://github.com/OWNER/kwachatrack.git
+git clone https://github.com/john-chola/KwachaTrack.git
 cd kwachatrack
 ./gradlew :core:parser:test :core:domain:test   # fast JVM tests, no emulator
 ./gradlew assembleDebug                          # APK in app/build/outputs/apk/debug/
