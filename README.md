@@ -28,7 +28,7 @@ Requirements: Android Studio (latest stable), JDK 17, Android SDK 36. A machine 
 
 ```bash
 git clone https://github.com/john-chola/KwachaTrack.git
-cd kwachatrack
+cd john-chola/KwachaTrack
 ./gradlew :core:parser:test :core:domain:test   # fast JVM tests, no emulator
 ./gradlew assembleDebug                          # APK in app/build/outputs/apk/debug/
 ```
